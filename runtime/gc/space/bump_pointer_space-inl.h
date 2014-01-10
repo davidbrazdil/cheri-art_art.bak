@@ -35,8 +35,8 @@ inline mirror::Object* BumpPointerSpace::AllocNonvirtualWithoutAccounting(size_t
       return nullptr;
     }
     // TODO: Use a cas which always equals the size of pointers.
-  } while (android_atomic_cas(reinterpret_cast<int32_t>(old_end),
-                              reinterpret_cast<int32_t>(new_end),
+  } while (android_atomic_cas(reinterpret_cast<intptr_t>(old_end),
+                              reinterpret_cast<intptr_t>(new_end),
                               reinterpret_cast<volatile int32_t*>(&end_)) != 0);
   return reinterpret_cast<mirror::Object*>(old_end);
 }
