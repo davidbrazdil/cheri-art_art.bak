@@ -46,7 +46,7 @@ inline LockWord::LockWord() : value_(0) {
 }
 
 inline LockWord::LockWord(Monitor* mon)
-    : value_((reinterpret_cast<uint32_t>(mon) >> kStateSize) | (kStateFat << kStateShift)) {
+    : value_((reinterpret_cast<uintptr_t>(mon) >> kStateSize) | (kStateFat << kStateShift)) {
   DCHECK_EQ(FatLockMonitor(), mon);
 }
 
