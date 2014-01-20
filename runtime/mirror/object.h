@@ -202,7 +202,7 @@ class MANAGED Object {
   void SetFieldPtr(MemberOffset field_offset, T new_value, bool is_volatile, bool this_is_valid = true) {
 #ifdef __CHERI__
     uint64_t pointer = reinterpret_cast<uint64_t>(new_value);
-    assert((pointer & 0xFFFFFFFF00000000) == 0);
+    assert((pointer >> 32) == 0);
     uint32_t new_value_32 = (uint32_t) pointer;
     SetField32(field_offset, reinterpret_cast<uint32_t>(new_value_32), is_volatile, this_is_valid);
 #else
