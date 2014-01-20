@@ -118,7 +118,7 @@ inline void ObjectArray<T>::Copy(const ObjectArray<T>* src, int src_pos,
         Object* object = src->GetFieldObject<Object*>(src_offset, false);
         heap->VerifyObject(object);
         // directly set field, we do a bulk write barrier at the end
-        dst->SetField32(dst_offset, reinterpret_cast<uint32_t>(object), false, true);
+        dst->SetField32(dst_offset, reinterpret_cast<uintptr_t>(object), false, true);
         src_offset = MemberOffset(src_offset.Uint32Value() + sizeof(Object*));
         dst_offset = MemberOffset(dst_offset.Uint32Value() + sizeof(Object*));
       }
@@ -133,7 +133,7 @@ inline void ObjectArray<T>::Copy(const ObjectArray<T>* src, int src_pos,
         }
         heap->VerifyObject(object);
         // directly set field, we do a bulk write barrier at the end
-        dst->SetField32(dst_offset, reinterpret_cast<uint32_t>(object), false, true);
+        dst->SetField32(dst_offset, reinterpret_cast<uintptr_t>(object), false, true);
         src_offset = MemberOffset(src_offset.Uint32Value() + sizeof(Object*));
         dst_offset = MemberOffset(dst_offset.Uint32Value() + sizeof(Object*));
       }

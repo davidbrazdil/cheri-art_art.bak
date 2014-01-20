@@ -139,7 +139,7 @@ inline void ArtMethod::AssertPcIsWithinCode(uintptr_t pc) const {
 
 inline uint32_t ArtMethod::GetOatCodeOffset() const {
   DCHECK(!Runtime::Current()->IsStarted());
-  return reinterpret_cast<uint32_t>(GetEntryPointFromCompiledCode());
+  return reinterpret_cast<uintptr_t>(GetEntryPointFromCompiledCode());
 }
 
 inline void ArtMethod::SetOatCodeOffset(uint32_t code_offset) {
@@ -149,7 +149,7 @@ inline void ArtMethod::SetOatCodeOffset(uint32_t code_offset) {
 
 inline uint32_t ArtMethod::GetOatMappingTableOffset() const {
   DCHECK(!Runtime::Current()->IsStarted());
-  return reinterpret_cast<uint32_t>(GetMappingTable());
+  return reinterpret_cast<uintptr_t>(GetMappingTable());
 }
 
 inline void ArtMethod::SetOatMappingTableOffset(uint32_t mapping_table_offset) {
@@ -159,7 +159,7 @@ inline void ArtMethod::SetOatMappingTableOffset(uint32_t mapping_table_offset) {
 
 inline uint32_t ArtMethod::GetOatVmapTableOffset() const {
   DCHECK(!Runtime::Current()->IsStarted());
-  return reinterpret_cast<uint32_t>(GetVmapTable());
+  return reinterpret_cast<uintptr_t>(GetVmapTable());
 }
 
 inline void ArtMethod::SetOatVmapTableOffset(uint32_t vmap_table_offset) {
@@ -174,7 +174,7 @@ inline void ArtMethod::SetOatNativeGcMapOffset(uint32_t gc_map_offset) {
 
 inline uint32_t ArtMethod::GetOatNativeGcMapOffset() const {
   DCHECK(!Runtime::Current()->IsStarted());
-  return reinterpret_cast<uint32_t>(GetNativeGcMap());
+  return reinterpret_cast<uintptr_t>(GetNativeGcMap());
 }
 
 inline bool ArtMethod::IsRuntimeMethod() const {
