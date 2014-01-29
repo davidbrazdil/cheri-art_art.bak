@@ -181,7 +181,7 @@ void HexDump::Dump(std::ostream& os) const {
   unsigned int offset;    /* offset to show while printing */
 
   if (show_actual_addresses_) {
-    offset = reinterpret_cast<int>(addr);
+    offset = PTR_TO_UINT(addr);
   } else {
     offset = 0;
   }

@@ -326,7 +326,7 @@ class IndirectReferenceTable {
    * Extract the table index from an indirect reference.
    */
   static uint32_t ExtractIndex(IndirectRef iref) {
-    uint32_t uref = (uint32_t) iref;
+    uint32_t uref = PTR_TO_UINT(iref);
     return (uref >> 2) & 0xffff;
   }
 
