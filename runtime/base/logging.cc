@@ -178,10 +178,10 @@ void HexDump::Dump(std::ostream& os) const {
   static const char gHexDigit[] = "0123456789abcdef";
   const unsigned char* addr = reinterpret_cast<const unsigned char*>(address_);
   char out[76];           /* exact fit */
-  uintptr_t offset;    /* offset to show while printing */
+  unsigned int offset;    /* offset to show while printing */
 
   if (show_actual_addresses_) {
-    offset = reinterpret_cast<uintptr_t>(addr);
+    offset = reinterpret_cast<int>(addr);
   } else {
     offset = 0;
   }
