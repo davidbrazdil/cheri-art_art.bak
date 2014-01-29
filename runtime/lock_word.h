@@ -155,13 +155,13 @@ class LockWord {
   }
 
  private:
-  explicit LockWord(uintptr_t val) : value_(val) {}
+  explicit LockWord(uint32_t val) : value_(val) {}
 
   // Only Object should be converting LockWords to/from uints.
   friend class mirror::Object;
 
   // The encoded value holding all the state.
-  uintptr_t value_;
+  uint32_t value_;
 };
 std::ostream& operator<<(std::ostream& os, const LockWord::LockState& code);
 
